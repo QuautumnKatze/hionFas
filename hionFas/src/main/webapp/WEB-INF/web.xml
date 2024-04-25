@@ -9,4 +9,14 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>HomeSliderServlet</display-name>
+    <servlet-name>HomeSliderServlet</servlet-name>
+    <servlet-class>controller.HomeSliderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomeSliderServlet</servlet-name>
+    <url-pattern>/HomeSliderServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
