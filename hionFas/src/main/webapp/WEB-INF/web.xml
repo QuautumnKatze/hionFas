@@ -8,6 +8,7 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
+    <welcome-file>HomeSliderServlet.java</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
@@ -18,5 +19,25 @@
   <servlet-mapping>
     <servlet-name>HomeSliderServlet</servlet-name>
     <url-pattern>/HomeSliderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductCategoriesServlet</display-name>
+    <servlet-name>ProductCategoriesServlet</servlet-name>
+    <servlet-class>controller.ProductCategoriesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductCategoriesServlet</servlet-name>
+    <url-pattern>/ProductCategoriesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductsServlet</display-name>
+    <servlet-name>ProductsServlet</servlet-name>
+    <servlet-class>controller.ProductsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductsServlet</servlet-name>
+    <url-pattern>/ProductsServlet</url-pattern>
   </servlet-mapping>
 </web-app>
