@@ -10,6 +10,41 @@ import model.Products;
 
 public class ProductsDAO extends DBContext {
 	
+	public List<Products> getAll() {
+		List<Products> list = new ArrayList<Products>();
+		ProductCategoriesDAO cd = new ProductCategoriesDAO();
+		String sql = "SELECT * from Products";
+		
+		try {
+			PreparedStatement st = connection.prepareStatement(sql);
+			ResultSet rs = st.executeQuery();
+			
+			String ProductName, Image, ShortDes, Description;
+			int ProductID, PCategoryID;
+			double Price;
+			
+			while (rs.next()) {
+				ProductID = rs.getInt(1);
+				ProductName = rs.getString(2);
+				Image = rs.getString(3);
+				PCategoryID = rs.getInt(4);
+				ShortDes = rs.getString(5);
+				Description = rs.getString(6);
+				Price = rs.getDouble(7);
+				
+				ProductCategories c = cd.getProductCategoriesById(PCategoryID);
+				Products p = new Products(ProductID, ProductName, Image, c, ShortDes, Description, Price);
+				list.add(p);
+			}
+			st.close();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return list;
+	}
+	
 	public List<Products> getProductByCategoryId(int PCategoryID) {
 		List<Products> list = new ArrayList<Products>();
 		ProductCategoriesDAO cd = new ProductCategoriesDAO();

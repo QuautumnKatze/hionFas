@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.xdevapi.PreparableStatement;
-
 import model.HomeSlider;
 
 public class HomeSliderDAO extends DBContext{

@@ -1,51 +1,51 @@
 package model;
 
 public class HomeSlider {
-	private int SliderID;
-	private String Name;
-	private String Description;
-	private String Link;
-	private String Image;
+	private int sliderID;
+	private String name;
+	private String description;
+	private String link;
+	private String image;
 	public HomeSlider() {
 		super();
 	}
 	public HomeSlider(int sliderID, String name, String description, String link, String image) {
 		super();
-		SliderID = sliderID;
-		Name = name;
-		Description = description;
-		Link = link;
-		Image = image;
+		this.sliderID = sliderID;
+		this.name = name;
+		this.description = description;
+		this.link = link;
+		this.image = image;
 	}
 	public int getSliderID() {
-		return SliderID;
+		return sliderID;
 	}
 	public void setSliderID(int sliderID) {
-		SliderID = sliderID;
+		this.sliderID = sliderID;
 	}
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 	public String getLink() {
-		return Link;
+		return link;
 	}
 	public void setLink(String link) {
-		Link = link;
+		this.link = link;
 	}
 	public String getImage() {
-		return Image;
+		return image;
 	}
 	public void setImage(String image) {
-		Image = image;
+		this.image = image;
 	}
 	
 	  

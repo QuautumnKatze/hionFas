@@ -1,34 +1,62 @@
 package model;
 
 public class ProductCategories {
-	private int PCategoryID;
-	private String PCategoryName;
+	private int pCategoryID;
+	private String pCategoryName;
+	private String identity;
+	private String image;
 	
 	public ProductCategories() {
 		super();
 	}
 
-	public ProductCategories(int pCategoryID, String pCategoryName) {
+	public ProductCategories(int pCategoryID, String pCategoryName, String identity, String image) {
 		super();
-		PCategoryID = pCategoryID;
-		PCategoryName = pCategoryName;
+		this.pCategoryID = pCategoryID;
+		this.pCategoryName = pCategoryName;
+		this.identity = identity;
+		this.image = image;
 	}
 
-	public int getPCategoryID() {
-		return PCategoryID;
+	public int getpCategoryID() {
+		return pCategoryID;
 	}
 
-	public void setPCategoryID(int pCategoryID) {
-		PCategoryID = pCategoryID;
+	public void setpCategoryID(int pCategoryID) {
+		this.pCategoryID = pCategoryID;
 	}
 
-	public String getPCategoryName() {
-		return PCategoryName;
+	public String getpCategoryName() {
+		return pCategoryName;
 	}
 
-	public void setPCategoryName(String pCategoryName) {
-		PCategoryName = pCategoryName;
+	public void setpCategoryName(String pCategoryName) {
+		this.pCategoryName = pCategoryName;
 	}
+
+	public String getIdentity() {
+		return identity;
+	}
+
+	public void setIdentity(String identity) {
+		this.identity = identity;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	
+
+	
+
+	
+	
+	
 	
 	
 

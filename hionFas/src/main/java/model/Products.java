@@ -1,47 +1,45 @@
 package model;
 
 public class Products {
-	private int ProductID;
-	private String ProductName;
-	private String Image;
+	private int productId;
+	private String productName;
+	private String image;
 	private ProductCategories category;
-	private String ShortDes;
-	private String Description;
+	private String shortDes;
+	private String description;
 	private double price;
 	public Products() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Products(int productID, String productName, String image, ProductCategories category, String shortDes,
+	public Products(int productId, String productName, String image, ProductCategories category, String shortDes,
 			String description, double price) {
 		super();
-		ProductID = productID;
-		ProductName = productName;
-		Image = image;
+		this.productId = productId;
+		this.productName = productName;
+		this.image = image;
 		this.category = category;
-		ShortDes = shortDes;
-		Description = description;
+		this.shortDes = shortDes;
+		this.description = description;
 		this.price = price;
 	}
-
-	public int getProductID() {
-		return ProductID;
+	public int getProductId() {
+		return productId;
 	}
-	public void setProductID(int productID) {
-		ProductID = productID;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 	public String getProductName() {
-		return ProductName;
+		return productName;
 	}
 	public void setProductName(String productName) {
-		ProductName = productName;
+		this.productName = productName;
 	}
 	public String getImage() {
-		return Image;
+		return image;
 	}
 	public void setImage(String image) {
-		Image = image;
+		this.image = image;
 	}
 	public ProductCategories getCategory() {
 		return category;
@@ -50,16 +48,16 @@ public class Products {
 		this.category = category;
 	}
 	public String getShortDes() {
-		return ShortDes;
+		return shortDes;
 	}
 	public void setShortDes(String shortDes) {
-		ShortDes = shortDes;
+		this.shortDes = shortDes;
 	}
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 	public double getPrice() {
 		return price;
@@ -67,6 +65,8 @@ public class Products {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	
 	
 	
 	

@@ -11,7 +11,7 @@ public class ProductCategoriesDAO extends DBContext {
 	
 	public List<ProductCategories> getAll() {
 		List<ProductCategories> list = new ArrayList<ProductCategories>();
-		String sql = "SELECT * FROM hionfasdb.productcategories";
+		String sql = "select * from productcategories";
 		
 		try {
 			PreparedStatement st = connection.prepareStatement(sql);
@@ -19,7 +19,9 @@ public class ProductCategoriesDAO extends DBContext {
 			
 			while (rs.next()) {
 				ProductCategories c = new ProductCategories(rs.getInt(1),
-															rs.getString(2));
+															rs.getString(2),
+															rs.getString(3),
+															rs.getString(4));
 				list.add(c);
 			}
 			st.close();
@@ -32,7 +34,7 @@ public class ProductCategoriesDAO extends DBContext {
 	}
 	
 	public ProductCategories getProductCategoriesById(int id) {
-		String sql = "SELECT * FROM hionfasdb.productcategories where PCategoryID = ?";
+		String sql = "select * from productcategories where PCategoryID = ?";
 		
 		try {
 			PreparedStatement st = connection.prepareStatement(sql);
@@ -41,7 +43,9 @@ public class ProductCategoriesDAO extends DBContext {
 			
 			if(rs.next()) {
 				ProductCategories c = new ProductCategories(rs.getInt(1),
-															rs.getString(2));
+															rs.getString(2),
+															rs.getString(3),
+															rs.getString(4));
 				return c;
 			}
 		} catch (Exception e) {
@@ -49,6 +53,30 @@ public class ProductCategoriesDAO extends DBContext {
 		}
 		
 		return null;
+	}
+	
+	public List<ProductCategories> getProductCategoriesLimit3() {
+		List<ProductCategories> listLimit3 = new ArrayList<ProductCategories>();
+		String sql = "SELECT  * FROM hionfasdb.productcategories order by PCategoryID asc limit 3";
+		
+		try {
+			PreparedStatement st = connection.prepareStatement(sql);
+			ResultSet rs = st.executeQuery();
+			
+			while (rs.next()) {
+				ProductCategories c = new ProductCategories(rs.getInt(1),
+															rs.getString(2),
+															rs.getString(3),
+															rs.getString(4));
+				listLimit3.add(c);
+			}
+			st.close();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return listLimit3;
 	}
 
 }

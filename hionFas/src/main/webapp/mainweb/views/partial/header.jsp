@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,26 @@
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li class="active-menu">
+							<c:forEach items="${sessionScope.MenuData }" var="menu">
+				
+								<c:if test="${menu.level==0 }">
+									<li>
+										<a href="${menu.link }">${menu.menuName }</a>
+										<ul class="sub-menu-m">
+											
+											<c:forEach items="${sessionScope.MenuData }" var="menuChild">
+												<c:if test="${menuChild.level != 0 && menuChild.parentID == menu.menuID }">
+													<li><a href="${menuChild.link }">${menuChild.menuName }</a></li>
+												</c:if>
+											</c:forEach>
+										</ul>
+										
+									</li>
+								</c:if>
+								
+							
+							</c:forEach>
+							<!-- <li class="active-menu">
 								<a href="index.html">Home</a>
 								<ul class="sub-menu">
 									<li><a href="index.html">Homepage 1</a></li>
@@ -76,7 +96,7 @@
 
 							<li>
 								<a href="contact.html">Contact</a>
-							</li>
+							</li> -->
 						</ul>
 					</div>	
 
@@ -160,7 +180,28 @@
 			</ul>
 
 			<ul class="main-menu-m">
-				<li>
+			
+				<c:forEach items="${requestScope.MenuData }" var="menu">
+				
+					<c:if test="${menu.level==0 }">
+						<li>
+							<a href="${menu.link }">${menu.menuName }</a>
+							<ul class="sub-menu-m">
+								
+								<c:forEach items="${requestScope.MenuData }" var="menuChild">
+									<c:if test="${menuChild.level != 0 && menuChild.parentID == menu.menuID }">
+										<li><a href="${menuChild.link }">${menuChild.menuName }</a></li>
+									</c:if>
+								</c:forEach>
+							</ul>
+							
+						</li>
+					</c:if>
+					
+				
+				</c:forEach>
+				
+				<!-- <li>
 					<a href="index.html">Home</a>
 					<ul class="sub-menu-m">
 						<li><a href="index.html">Homepage 1</a></li>
@@ -190,7 +231,7 @@
 
 				<li>
 					<a href="contact.html">Contact</a>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 

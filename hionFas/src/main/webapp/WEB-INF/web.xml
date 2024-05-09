@@ -8,36 +8,25 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
-    <welcome-file>HomeSliderServlet.java</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>HomeSliderServlet</display-name>
-    <servlet-name>HomeSliderServlet</servlet-name>
-    <servlet-class>controller.HomeSliderServlet</servlet-class>
+    <display-name>HomeServlet</display-name>
+    <servlet-name>HomeServlet</servlet-name>
+    <servlet-class>controller.HomeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>HomeSliderServlet</servlet-name>
-    <url-pattern>/HomeSliderServlet</url-pattern>
+    <servlet-name>HomeServlet</servlet-name>
+    <url-pattern>/HomeServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ProductCategoriesServlet</display-name>
-    <servlet-name>ProductCategoriesServlet</servlet-name>
-    <servlet-class>controller.ProductCategoriesServlet</servlet-class>
+    <display-name>HeaderServlet</display-name>
+    <servlet-name>HeaderServlet</servlet-name>
+    <servlet-class>controller.HeaderServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ProductCategoriesServlet</servlet-name>
-    <url-pattern>/ProductCategoriesServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ProductsServlet</display-name>
-    <servlet-name>ProductsServlet</servlet-name>
-    <servlet-class>controller.ProductsServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ProductsServlet</servlet-name>
-    <url-pattern>/ProductsServlet</url-pattern>
+    <servlet-name>HeaderServlet</servlet-name>
+    <url-pattern>/HeaderServlet</url-pattern>
   </servlet-mapping>
 </web-app>
