@@ -7,12 +7,11 @@ import java.util.List;
 
 import model.Menu;
 
-
-
 public class MenuDAO extends DBContext {
+	
 	public List<Menu> getAll() {
 		List<Menu> list = new ArrayList<Menu>();
-		String sql = "SELECT * FROM hionfasdb.menu";
+		String sql = "select * FROM hionfasdb.menu";
 		
 		try {
 			PreparedStatement st = connection.prepareStatement(sql);

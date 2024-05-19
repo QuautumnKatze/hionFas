@@ -50,19 +50,13 @@
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<c:forEach items="${sessionScope.MenuData }" var="menu">
+							<c:forEach items="${requestScope.MenuData }" var="m">
 				
-								<c:if test="${menu.level==0 }">
+								<c:if test="${m.level==1 }">
 									<li>
-										<a href="${menu.link }">${menu.menuName }</a>
-										<ul class="sub-menu-m">
-											
-											<c:forEach items="${sessionScope.MenuData }" var="menuChild">
-												<c:if test="${menuChild.level != 0 && menuChild.parentID == menu.menuID }">
-													<li><a href="${menuChild.link }">${menuChild.menuName }</a></li>
-												</c:if>
-											</c:forEach>
-										</ul>
+										<a href="${m.link }">${m.menuName }</a>
+										
+										
 										
 									</li>
 								</c:if>

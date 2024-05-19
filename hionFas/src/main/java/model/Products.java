@@ -1,33 +1,48 @@
 package model;
 
 public class Products {
-	private int productId;
+	private int productID;
 	private String productName;
 	private String image;
 	private ProductCategories category;
 	private String shortDes;
 	private String description;
 	private double price;
+	private String weight;
+	private String material;
+	private String origin;
+	private String dimension;
+	private boolean isActive;
+	private boolean isNew;
+	private boolean isBestSeller;
 	public Products() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Products(int productId, String productName, String image, ProductCategories category, String shortDes,
-			String description, double price) {
+	public Products(int productID, String productName, String image, ProductCategories category, String shortDes,
+			String description, double price, String weight, String material, String origin, String dimension,
+			boolean isActive, boolean isNew, boolean isBestSeller) {
 		super();
-		this.productId = productId;
+		this.productID = productID;
 		this.productName = productName;
 		this.image = image;
 		this.category = category;
 		this.shortDes = shortDes;
 		this.description = description;
 		this.price = price;
+		this.weight = weight;
+		this.material = material;
+		this.origin = origin;
+		this.dimension = dimension;
+		this.isActive = isActive;
+		this.isNew = isNew;
+		this.isBestSeller = isBestSeller;
 	}
-	public int getProductId() {
-		return productId;
+	public int getProductID() {
+		return productID;
 	}
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setProductID(int productID) {
+		this.productID = productID;
 	}
 	public String getProductName() {
 		return productName;
@@ -64,6 +79,48 @@ public class Products {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	public String getWeight() {
+		return weight;
+	}
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+	public String getMaterial() {
+		return material;
+	}
+	public void setMaterial(String material) {
+		this.material = material;
+	}
+	public String getOrigin() {
+		return origin;
+	}
+	public void setOrigin(String origin) {
+		this.origin = origin;
+	}
+	public String getDimension() {
+		return dimension;
+	}
+	public void setDimension(String dimension) {
+		this.dimension = dimension;
+	}
+	public boolean isActive() {
+		return isActive;
+	}
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+	public boolean isNew() {
+		return isNew;
+	}
+	public void setNew(boolean isNew) {
+		this.isNew = isNew;
+	}
+	public boolean isBestSeller() {
+		return isBestSeller;
+	}
+	public void setBestSeller(boolean isBestSeller) {
+		this.isBestSeller = isBestSeller;
 	}
 	
 	

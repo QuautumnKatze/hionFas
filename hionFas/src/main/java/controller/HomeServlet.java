@@ -57,7 +57,7 @@ public class HomeServlet extends HttpServlet {
 				
 		//Products
 		ProductsDAO pd = new ProductsDAO(); 
-		List<Products> listProduct = pd.getAll(); 
+		List<Products> listProduct = pd.get16Products(); 
 		request.setAttribute("ProductData",listProduct);
 				
 		//Product Categories
@@ -75,7 +75,7 @@ public class HomeServlet extends HttpServlet {
 		List<ProductCategories> listPCategory3 = cdbanner.getProductCategoriesLimit3();
 		request.setAttribute("CategoryBannerData", listPCategory3);
 				
-				
+		System.out.println(listMenu.get(0).getMenuName());
 		request.getRequestDispatcher("/mainweb/views/index.jsp").forward(request, response);
 	}
 

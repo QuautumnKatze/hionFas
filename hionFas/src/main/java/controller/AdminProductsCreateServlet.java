@@ -1,0 +1,101 @@
+package controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+import model.ProductCategories;
+import model.Products;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+import dal.ProductCategoriesDAO;
+import dal.ProductsDAO;
+
+/**
+ * Servlet implementation class AdminProductsCreateServlet
+ */
+@MultipartConfig
+public class AdminProductsCreateServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AdminProductsCreateServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Product Categories
+		ProductCategoriesDAO cd = new ProductCategoriesDAO();
+		List<ProductCategories> listPCategory = cd.getAll();
+		request.setAttribute("PCategoryData", listPCategory);
+		
+		request.getRequestDispatcher("/adminweb/views/productsADD.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			//Fetch from form
+			String cid_S = request.getParameter("cid");
+			String name = request.getParameter("name");
+			String image = request.getParameter("image");
+			String shortDes = request.getParameter("shortDes");
+			String description = request.getParameter("des");
+			String price_S = request.getParameter("price");
+			String weight = request.getParameter("weight");
+			String material = request.getParameter("material");
+			String origin = request.getParameter("origin");
+			String dimension = request.getParameter("dimension");
+			String isActive_S = request.getParameter("isActive");
+			String isNew_S = request.getParameter("isNew");
+			String isBestSeller_S = request.getParameter("isBestSeller");
+			
+			
+			//Convert String to other datatype
+			Double price = Double.parseDouble(price_S);
+			int cid = Integer.parseInt(cid_S);
+			boolean isActive = isActive_S != null && isActive_S.equals("on");
+			boolean isNew = isNew_S != null && isNew_S.equals("on");
+			boolean isBestSeller = isBestSeller_S != null && isBestSeller_S.equals("on");
+
+			//Get Category from categoryID
+			ProductCategoriesDAO pcd = new ProductCategoriesDAO();
+			ProductCategories cate = pcd.getProductCategoriesById(cid);
+			
+			//Declare fake id (Won't be use for insert)
+			int id = 0;
+			
+			//image Path
+			String insertImage = "mainweb/assets/images/products/" + image;
+			
+			//Declare Products class
+			ProductsDAO pd = new ProductsDAO();
+			Products p = new Products(id, name, insertImage, cate, shortDes, description, price, weight, material, origin, dimension, isActive, isNew, isBestSeller);
+			
+			//Insert to database
+			pd.insert(p);
+			
+			request.getRequestDispatcher("AdminProductsServlet").forward(request, response);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+}
